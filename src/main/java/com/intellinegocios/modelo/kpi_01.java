@@ -9,6 +9,8 @@ import javax.persistence.Table;
 @Table(name = "kpi_01")
 public class kpi_01 {
 	@Id
+	@Column(name = "id_cliente")
+	private int id_cliente;
 	@Column(name = "nombre")
 	private String nombre;
 	@Column(name = "zona")
@@ -25,18 +27,30 @@ public class kpi_01 {
 	
 	public kpi_01() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
 
 
-	public kpi_01(String nombre, String zona, String ciudad, String servicio, String medio,
+	public kpi_01(int id_cliente, String nombre, String zona, String ciudad, String servicio, String medio,
 			String fecha_de_afliliacion) {
 		super();
+		this.id_cliente = id_cliente;
 		this.nombre = nombre;
 		this.zona = zona;
 		this.ciudad = ciudad;
 		this.servicio = servicio;
 		this.medio = medio;
 		this.fecha_de_afliliacion = fecha_de_afliliacion;
+	}
+
+
+	public int getId_cliente() {
+		return id_cliente;
+	}
+
+
+	public void setId_cliente(int id_cliente) {
+		this.id_cliente = id_cliente;
 	}
 
 
@@ -98,6 +112,8 @@ public class kpi_01 {
 	public void setFecha_de_afliliacion(String fecha_de_afliliacion) {
 		this.fecha_de_afliliacion = fecha_de_afliliacion;
 	}
+	
+
 	
 	
 

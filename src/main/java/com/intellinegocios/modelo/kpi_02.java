@@ -9,6 +9,8 @@ import javax.persistence.Table;
 @Table(name = "kpi_02")
 public class kpi_02 {
 	@Id
+	@Column(name = "id_reporte")
+	private int id_reporte;
 	@Column(name = "zona")
 	private String zona;
 	@Column(name = "cliente")
@@ -30,9 +32,10 @@ public class kpi_02 {
 	}
 
 
-	public kpi_02(String zona, String cliente, String prioridad, String falla, String fecha_de_creacion,
+	public kpi_02(int id_reporte, String zona, String cliente, String prioridad, String falla, String fecha_de_creacion,
 			String fecha_de_cierre, String tiempo_total) {
 		super();
+		this.id_reporte = id_reporte;
 		this.zona = zona;
 		this.cliente = cliente;
 		this.prioridad = prioridad;
@@ -40,6 +43,16 @@ public class kpi_02 {
 		this.fecha_de_creacion = fecha_de_creacion;
 		this.fecha_de_cierre = fecha_de_cierre;
 		this.tiempo_total = tiempo_total;
+	}
+
+
+	public int getId_reporte() {
+		return id_reporte;
+	}
+
+
+	public void setId_reporte(int id_reporte) {
+		this.id_reporte = id_reporte;
 	}
 
 
@@ -111,8 +124,4 @@ public class kpi_02 {
 	public void setTiempo_total(String tiempo_total) {
 		this.tiempo_total = tiempo_total;
 	}
-
-
-	
-
 }
