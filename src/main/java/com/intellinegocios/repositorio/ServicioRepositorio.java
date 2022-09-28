@@ -62,5 +62,39 @@ public class ServicioRepositorio {
 
 		}
 	}
+	
+	// No funciona la funcion
+	public List<Double>  formulaKpi1 () {
+		
+		Config configuration = new Config();
+		try {
+			List<Double> resultado;
+			
+			DataSource datasource = configuration.conexion();
+			JdbcTemplate jdbcTemplate = new JdbcTemplate(datasource);
+			
+			String sql = ""
+					+ "SELECT (\r\n"
+					+ "    ((SELECT COUNT(`fecha_de_afliliacion`) FROM `kpi_01` WHERE `fecha_de_afliliacion` LIKE '%/08/2022')\r\n"
+					+ "    -\r\n"
+					+ "    (SELECT COUNT(`fecha_de_afliliacion`) FROM `kpi_01` WHERE `fecha_de_afliliacion` LIKE '%/07/2022'))\r\n"
+					+ "    / \r\n"
+					+ "    (SELECT COUNT(`fecha_de_afliliacion`) FROM `kpi_01` WHERE `fecha_de_afliliacion` LIKE '%/08/2022')\r\n"
+					+ "    * 100\r\n"
+					+ "    \r\n"
+					+ ") AS KPI_TDC;";
+			
+			resultado = jdbcTemplate.query(sql,
+					new BeanPropertyRowMapper<>(Double.class));
+			
+			return resultado;
+			
+		}catch (Exception e) {
+			System.out.println(
+					"Error en getKpi01(). Sql exception: " + e.getMessage());
+			return null;
+
+		}
+	}
 
 }

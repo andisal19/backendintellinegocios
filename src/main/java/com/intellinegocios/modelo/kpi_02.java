@@ -24,7 +24,7 @@ public class kpi_02 {
 	@Column(name = "fecha_de_cierre")
 	private String fecha_de_cierre;
 	@Column(name = "tiempo_total")
-	private String tiempo_total;
+	private int tiempo_total;
 	
 	
 	public kpi_02() {
@@ -33,7 +33,7 @@ public class kpi_02 {
 
 
 	public kpi_02(int id_reporte, String zona, String cliente, String prioridad, String falla, String fecha_de_creacion,
-			String fecha_de_cierre, String tiempo_total) {
+			String fecha_de_cierre, int tiempo_total) {
 		super();
 		this.id_reporte = id_reporte;
 		this.zona = zona;
@@ -116,12 +116,12 @@ public class kpi_02 {
 	}
 
 
-	public String getTiempo_total() {
+	public int getTiempo_total() {
 		return tiempo_total;
 	}
 
 
-	public void setTiempo_total(String tiempo_total) {
+	public void setTiempo_total(int tiempo_total) {
 		this.tiempo_total = tiempo_total;
 	}
 }

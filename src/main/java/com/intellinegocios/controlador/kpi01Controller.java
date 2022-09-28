@@ -4,12 +4,10 @@ package com.intellinegocios.controlador;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,6 +25,7 @@ public class kpi01Controller {
 
 	@Autowired
 	private kpiServices kpiservices;
+	
 
 	// Metodo para crear la lista de los usuarios.
 	@GetMapping("/kpi_01")
@@ -45,5 +44,10 @@ public class kpi01Controller {
 			System.out.println("Error en el controller " + e.getMessage());
 			return null;
 		}
+	}
+	
+	@GetMapping("/formula")
+	public List<Double> formula1() {
+		return kpiservices.getResultadoKpi();
 	}
 }

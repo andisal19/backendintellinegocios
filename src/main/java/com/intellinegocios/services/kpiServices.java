@@ -24,4 +24,19 @@ public class kpiServices {
 			return null;
 		}
 	}
+	
+	public List<Double> getResultadoKpi(){
+		ServicioRepositorio servicioRepositorio = new ServicioRepositorio();
+		List<Double> resultado;
+		
+		try {
+			
+			resultado = servicioRepositorio.formulaKpi1();
+			return resultado;
+			
+		} catch (Exception e) {
+			System.out.println("Excepcion controlada de services " + e.getMessage());
+			return null;
+		}
+	}
 }
